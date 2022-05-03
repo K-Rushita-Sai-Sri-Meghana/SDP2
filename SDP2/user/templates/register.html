@@ -1,0 +1,266 @@
+{% load static %}
+<html lang="en">
+
+  <head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>GetYourGoods</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<!--
+
+TemplateMo 546 Sixteen Clothing
+
+https://templatemo.com/tm-546-sixteen-clothing
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}" >
+
+
+  </head>
+  <body>
+
+
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><h2>GetYour <em>Goods</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'products' %}">Our Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+	       <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+	      <li class="nav-item active">
+                <a class="nav-link" href="{% url 'reg' %}">Register</a>
+              </li>
+	      <li class="nav-item">
+                <a class="nav-link" href="cart.html"> <i class="fa fa-shopping-cart" style="font-size:24px 				color:white"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<body>
+      <div class="containerl">
+        <div class="headerl">
+            <h2>REGISTER</h2>
+
+        </div>
+        <form  onsubmit="return validation()" class="form" method="POST">
+			{% csrf_token %}
+
+
+				<div class="form-control">
+					<label>Username</label>
+					{{ form.username }}
+					<span id="user" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-control">
+					<label>Email</label>
+					{{ form.email }}
+
+					<span id="emails" class="text-danger font-weight-bold"> </span>
+				</div>
+
+			<div class="form-control">
+					<label > Mobile Number: </label>
+					{{ form.phoneno }}
+					<span id="phoneno" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-control">
+					<label>Password</label>
+					{{ form.password }}
+					<span id="passwords" class="text-danger font-weight-bold"> </span>
+					</div>
+
+            <div class="form-control">
+					<label>Confirm Password</label>
+					{{ form.cpassword }}
+					<span id="cfrmpass" class="text-danger font-weight-bold"> </span>
+					</div>
+
+
+
+
+
+
+<input type="submit" value="Submit" class="btn" name="">
+
+			</form><br><br>
+
+
+		</div>
+	</div>
+
+
+
+
+  <script type="text/javascript">
+
+
+    function validation(){
+
+      var user = document.getElementById('username').value;
+      var emails = document.getElementById('email').value;
+      var phoneno = document.getElementById('phone').value;
+      var passwords = document.getElementById('password').value;
+      var cfrmpass = document.getElementById('cpassword').value;
+if(user == ""){
+        document.getElementById('user').innerHTML ="  Please fill the username field";
+        return false;
+      }
+      if((user.length <= 2) || (user.length > 20)) {
+        document.getElementById('user').innerHTML ="  Username lenght must be between 2 and 20";
+        return false;
+      }
+      if(!isNaN(user)){
+        document.getElementById('user').innerHTML ="  only characters are allowed";
+        return false;
+      }
+
+      if(emails == ""){
+        document.getElementById('emails').innerHTML ="  Please fill the email idx` field";
+        return false;
+      }
+      if(emails.indexOf('@') <= 0 ){
+        document.getElementById('emails').innerHTML ="  @ Invalid Position";
+        return false;
+      }
+
+      if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+        document.getElementById('emails').innerHTML ="  . Invalid Position";
+        return false;
+      }
+
+
+      if(phoneno == ""){
+        document.getElementById('phoneno').innerHTML ="  Please fill the mobile NUmber field";
+        return false;
+      }
+      if(isNaN(phoneno)){
+        document.getElementById('phoneno').innerHTML ="  user must write digits only not characters";
+        return false;
+      }
+      if(phoneno.length!=10){
+        document.getElementById('phoneno').innerHTML ="  Mobile Number must be 10 digits only";
+        return false;
+      }
+
+
+
+
+
+
+
+      if(passwords == ""){
+        document.getElementById('passwords').innerHTML ="  Please fill the password field";
+        return false;
+      }
+      if((passwords.length <= 5) || (passwords.length > 20)) {
+        document.getElementById('passwords').innerHTML ="  Passwords lenght must be between  5 and 20";
+        return false;
+      }
+
+      if(cfrmpass == ""){
+        document.getElementById('cfrmpass').innerHTML ="  Please fill the confirmpassword field";
+        return false;
+      }
+
+
+
+      if(passwords!=cfrmpass){
+        document.getElementById('cfrmpass').innerHTML =" ** Password does not match the confirm password";
+        return false;
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+  </script>
+      <br><br>
+
+
+<footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+
+            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'staitc/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'staitc/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'static/assets/js/custom.js' %}"></script>
+    <script src="{% static 'static/assets/js/owl.js' %}"></script>
+    <script src="{% static 'static/assets/js/slick.js' %}"></script>
+    <script src="{% static 'static/assets/js/isotope.js' %}"></script>
+    <script src="{% static 'static/assets/js/accordions.js' %}"></script>
+
+
+    <script language = "text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+  </body>
+
+</html>

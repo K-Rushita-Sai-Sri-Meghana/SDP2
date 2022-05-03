@@ -1,0 +1,243 @@
+{% load static %}
+<html>
+<head>
+<title>GetYourGoods</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" media="screen" type="text/css" />
+<link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+ <link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
+ <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.shop.js' %}"></script>
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</head>
+
+<body>
+<!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><h2>GetYour<em>Goods</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home
+
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'products' %}">Our Products</a>
+                <span class="sr-only">(current)</span>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+	       <li class="nav-item">
+                <a class="nav-link" href="">My Profile</a>
+              </li>
+	      <li class="nav-item">
+                <a class="nav-link" href="cart.html"> <i class="fa fa-shopping-cart" style="font-size:24px 				color:white"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<br><br><br>
+<div id="site">
+	<div id="content">
+		<div id="products">
+			<ul>
+				<li>
+					<div class="product-image">
+						<img src="{% static 'assets/images/laptop.jpg' %}" alt="" />
+					</div>
+					<div class="product-description" data-name="Laptop" data-price="50000">
+						<h3 class="product-name">Laptop</h3>
+						<p class="product-price">Rs:50000</p>
+						<form class="add-to-cart" action="{% url 'cart' %}" method="post">
+							{% csrf_token %}
+							<div>
+								<label for="qty-1">Quantity</label>
+								<input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</li>
+
+				<li>
+					<div class="product-image">
+						<img src="{% static 'assets/images/earpods.jpg' %}" alt="" />
+					</div>
+					<div class="product-description" data-name="Earpods" data-price="8000">
+						<h3 class="product-name">Earpods</h3>
+						<p class="product-price">Rs:8000</p>
+						<form class="add-to-cart" action="{% url 'cart' %}" method="post">
+							{% csrf_token %}
+							<div>
+								<label for="qty-2">Quantity</label>
+								<input type="text" name="qty-2" id="qty-2" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</li>
+
+				<li>
+					<div class="product-image">
+						<img src="{% static 'assets/images/alexa.jpg' %}" alt="" />
+					</div>
+					<div class="product-description" data-name="Alexa" data-price="3500">
+						<h3 class="product-name">Alexa</h3>
+						<p class="product-price">Rs:3500</p>
+						<form class="add-to-cart" action="{% url 'cart' %}" method="post">
+							{% csrf_token %}
+							<div>
+								<label for="qty-3">Quantity</label>
+								<input type="text" name="qty-3" id="qty-3" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</li>
+<br><br>
+<li>
+					<div class="product-image">
+						<img src="{% static 'assets/images/earphones.jpg' %}" alt="" />
+					</div>
+					<div class="product-description" data-name="Earphones" data-price="400">
+						<h3 class="product-name">Earphones</h3>
+						<p class="product-price">Rs:400</p>
+						<form class="add-to-cart" action="{% url 'cart' %}" method="post">
+							{% csrf_token %}
+							<div>
+								<label for="qty-1">Quantity</label>
+								<input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</li>
+<li>
+					<div class="product-image">
+						<img src="{% static 'assets/images/phone.jpg' %}" alt="" />
+					</div>
+					<div class="product-description" data-name="Phone" data-price="20000">
+						<h3 class="product-name">Phone</h3>
+						<p class="product-price">Rs:20000</p>
+						<form class="add-to-cart" action="{% url 'cart' %}" method="post">
+							{% csrf_token %}
+							<div>
+								<label for="qty-1">Quantity</label>
+								<input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</li>
+<li>
+					<div class="product-image">
+						<img src="{% static 'assets/images/tablet.jpg' %}" alt="" />
+						{% csrf_token %}
+					</div>
+					<div class="product-description" data-name="Tablet" data-price="8000">
+						<h3 class="product-name">Tablet</h3>
+						<p class="product-price">Rs:8000</p>
+						<form class="add-to-cart" action="{% url 'cart' %}" method="post">
+							{% csrf_token %}
+							<div>
+								<label for="qty-1">Quantity</label>
+								<input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</li>
+<li>
+					<div class="product-image">
+						<img src="{% static 'assets/images/cpu.jpg' %}" alt="" />
+					</div>
+					<div class="product-description" data-name="CPU" data-price="34000">
+						<h3 class="product-name">CPU</h3>
+						<p class="product-price">Rs:34000</p>
+						<form class="add-to-cart" action="{% url 'cart' %}" method="post">
+							{% csrf_token %}
+							<div>
+								<label for="qty-1">Quantity</label>
+								<input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</li>
+<li>
+					<div class="product-image">
+						<img src="{% static 'assets/images/mouse.jpg' %}" alt="" />
+					</div>
+					<div class="product-description" data-name="Mouse" data-price="800">
+						<h3 class="product-name">Mouse</h3>
+						<p class="product-price">Rs 800</p>
+						<form class="add-to-cart" action="{% url 'cart' %}" method="post">
+							{% csrf_token %}
+							<div>
+								<label for="qty-1">Quantity</label>
+								<input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</li>
+<li>
+					<div class="product-image">
+						<img src="{% static 'assets/images/PC.jpg' %}" alt="" />
+					</div>
+					<div class="product-description" data-name="PC" data-price="76000">
+						<h3 class="product-name">76000</h3>
+						<p class="product-price">Rs:76000</p>
+						<form class="add-to-cart" action="{% url 'cart' %}" method="post">
+							{% csrf_token %}
+							<div>
+								<label for="qty-1">Quantity</label>
+								<input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</li>
+
+
+
+			</ul>
+		</div>
+	</div>
+
+
+
+</div>
+<footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <p>Copyright &copy; GetYourGoods Co., Ltd.
+
+            - Contact: <a rel="nofollow noopener" href="contact.html" target="_blank">Goods</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+</body>
+</html>

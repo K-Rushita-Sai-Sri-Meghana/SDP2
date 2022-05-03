@@ -1,0 +1,109 @@
+{% load static %}
+<html>
+<head>
+<title>GetYourGoods: Your Order</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" media="screen" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.shop.js' %}"></script>
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" media="screen" type="text/css" />
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</head>
+
+<body id="checkout-page">
+
+<div id="site">
+<!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><h2>GetYour<em>Goods</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="products.html">Our Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+	       <li class="nav-item">
+                <a class="nav-link" href="">My Profile</a>
+              </li>
+	      <li class="nav-item">
+                <a class="nav-link" href="cart.html"> <i class="fa fa-shopping-cart" style="font-size:24px 				color:white"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<br><br><br><br>
+	<div id="content">
+		<h1>Your Order</h1>
+			<table id="checkout-cart" class="shopping-cart">
+			  <thead>
+				<tr>
+					<th scope="col">Item</th>
+					<th scope="col">Qty</th>
+					<th scope="col">Price</th>
+				</tr>
+			  </thead>
+			  <tbody>
+
+			  </tbody>
+			</table>
+		 <div id="pricing">
+
+			<p id="shipping">
+				<strong>Shipping</strong>: <span id="sshipping"></span>
+			</p>
+
+			<p id="sub-total">
+				<strong>Total</strong>: <span id="stotal"></span>
+			</p>
+		 </div>
+
+<form id="paypal-form" action="" method="post">
+	<input type="hidden" name="cmd" value="_cart" />
+	<input type="hidden" name="upload" value="1" />
+	<input type="hidden" name="business" value="" />
+
+	<input type="hidden" name="currency_code" value="" />
+	<input type="submit" id="paypal-btn" class="btn" value="Pay with PayPal" />
+</form>
+        <form action="{% url 'gpay' %}">
+      <input type="submit" id="googlepay" class="btn" value="Pay with GooglePay" />
+        </form>
+        <form action="{% url 'phnpe' %}">
+             <input type="submit" id="phonepe" class="btn" value="Pay with PhonePe" />
+        </form>
+
+
+
+	</div>
+
+
+
+</div>
+
+
+</body>
+</html>

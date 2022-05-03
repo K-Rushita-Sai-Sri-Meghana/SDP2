@@ -1,0 +1,101 @@
+{% load static %}
+<html>
+<head>
+<title>GetYourGoods: Your Shopping Cart</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" media="screen" type="text/css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.shop.js' %}"></script>
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" media="screen" type="text/css" />
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</head>
+
+<body>
+
+<div id="site">
+	 <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'home' %}"><h2>GetYour<em>Goods</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home
+
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'products' %}">Our Products</a>
+                <span class="sr-only">(current)</span>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+	       <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">My Profile</a>
+              </li>
+	      <li class="nav-item">
+                <a class="nav-link" href="{% url 'cart' %}"> <i class="fa fa-shopping-cart" style="font-size:24px 				color:white"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<br><br><br><br><br>
+	<div id="content">
+		<h1>Your Shopping Cart</h1>
+		<form id="shopping-cart" action="{% url 'cart' %}" method="post">
+			<table class="shopping-cart">
+			  <thead>
+				<tr>
+					<th scope="col">Item</th>
+					<th scope="col">Qty</th>
+					<th scope="col" colspan="2">Price</th>
+				</tr>
+			  </thead>
+			  <tbody>
+
+			  </tbody>
+			</table>
+			<p id="sub-total">
+				<strong>Sub Total</strong>: <span id="stotal"></span>
+			</p>
+			<ul id="shopping-cart-actions">
+				<li>
+					<input type="submit" name="update" id="update-cart" class="btn" value="Update Cart" />
+				</li>
+				<li>
+					<input type="submit" name="delete" id="empty-cart" class="btn" value="Empty Cart" />
+				</li>
+				<li>
+					<a href="{% url 'home' %}" class="btn">Continue Shopping</a>
+				</li>
+				<li>
+					<a href="{% url 'checkout' %}" class="btn">Go To Checkout</a>
+				</li>
+			</ul>
+		</form>
+	</div>
+
+
+
+</div>
+
+
+</body>
+</html>
